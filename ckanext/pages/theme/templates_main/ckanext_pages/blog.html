@@ -35,7 +35,7 @@
 {% set posts = h.get_recent_blog_posts(number=3, exclude=c.page.name) %}
   <div class="module module-narrow module-shallow">
     <div class="module-content">
-      <a href="/blog"><i class="fa fa-newspaper-o"></i> {% trans %}All News{% endtrans %}</a>
+      <a href="{{ h.url_for('blog_index') }}"><i class="fa fa-newspaper-o"></i> {% trans %}All News{% endtrans %}</a>
     </div>
     <h2 class="module-heading">
       {% trans %}Latest News{% endtrans %}
