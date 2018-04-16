@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-pages 0.1.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-05 12:25+0000\n"
+"POT-Creation-Date: 2018-04-16 10:32+0000\n"
 "PO-Revision-Date: 2018-03-02 11:53+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk_UA\n"
@@ -18,74 +18,78 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.3\n"
+"Generated-By: Babel 2.3.4\n"
 
-#: ckanext/pages/actions.py:28
+#: ckanext/pages/actions.py:47
 msgid "Page name already exists in database"
-msgstr ""
+msgstr "Сторінка вже існує"
 
-#: ckanext/pages/actions.py:187 ckanext/pages/actions.py:210
-#: ckanext/pages/actions.py:218 ckanext/pages/actions.py:226
-#: ckanext/pages/actions.py:234 ckanext/pages/actions.py:242
-#: ckanext/pages/actions.py:250 ckanext/pages/actions.py:258
-#: ckanext/pages/actions.py:266 ckanext/pages/actions.py:274
-#: ckanext/pages/actions.py:282 ckanext/pages/actions.py:290
-#: ckanext/pages/actions.py:298
+#: ckanext/pages/actions.py:211 ckanext/pages/actions.py:241
+#: ckanext/pages/actions.py:249 ckanext/pages/actions.py:257
+#: ckanext/pages/actions.py:266 ckanext/pages/actions.py:275
+#: ckanext/pages/actions.py:283 ckanext/pages/actions.py:291
+#: ckanext/pages/actions.py:300 ckanext/pages/actions.py:309
+#: ckanext/pages/actions.py:317 ckanext/pages/actions.py:325
+#: ckanext/pages/actions.py:334
 msgid "Not authorized to see this page"
-msgstr ""
+msgstr "Не можна переглядати сторінку"
+
+#: ckanext/pages/actions.py:226
+msgid "You can upload image file only"
+msgstr "Ви можете тільки завантажити файл"
 
 #: ckanext/pages/auth.py:52
 #, python-format
 msgid "User %s not authorized to read this page"
-msgstr ""
+msgstr "Користувач  %s не має прав переглядати сторінку"
 
-#: ckanext/pages/controller.py:23
+#: ckanext/pages/controller.py:26
 msgid "Organization not found"
-msgstr ""
+msgstr "Розпорядник не знайдений"
 
-#: ckanext/pages/controller.py:25
+#: ckanext/pages/controller.py:28
 #, python-format
 msgid "Unauthorized to read organization %s"
-msgstr ""
+msgstr "Нема прав перегладати розпорядник %s"
 
-#: ckanext/pages/controller.py:65 ckanext/pages/controller.py:313
+#: ckanext/pages/controller.py:68 ckanext/pages/controller.py:319
 msgid "Page Not Found"
-msgstr ""
+msgstr "Сторінка не знайдена"
 
-#: ckanext/pages/controller.py:67 ckanext/pages/controller.py:315
+#: ckanext/pages/controller.py:70 ckanext/pages/controller.py:321
 msgid "Unauthorized to delete page"
-msgstr ""
+msgstr "Немає прав видаляти сторінку"
 
-#: ckanext/pages/controller.py:69 ckanext/pages/controller.py:124
-#: ckanext/pages/controller.py:317
+#: ckanext/pages/controller.py:72 ckanext/pages/controller.py:127
+#: ckanext/pages/controller.py:323
 msgid "Group not found"
-msgstr ""
+msgstr "Група не знайдена"
 
-#: ckanext/pages/controller.py:126
+#: ckanext/pages/controller.py:129
 #, python-format
 msgid "Unauthorized to read group %s"
-msgstr ""
+msgstr "Намає прав переглядати групу %s"
 
-#: ckanext/pages/controller.py:241
+#: ckanext/pages/controller.py:244
 msgid "ERROR: View not found {view_id}"
-msgstr ""
+msgstr "Передставлення не знайдено {view_id}"
 
-#: ckanext/pages/controller.py:249
+#: ckanext/pages/controller.py:252
 msgid "Your browser does not support iframes."
-msgstr ""
+msgstr "Ваш броузер не підтримує фреймів."
 
-#: ckanext/pages/controller.py:357
+#: ckanext/pages/controller.py:370
 msgid "Unauthorized to create or edit a page"
-msgstr ""
+msgstr "Немає прав створювати чи редагувати сторінку"
 
-#: ckanext/pages/controller.py:376
+#: ckanext/pages/controller.py:389
 msgid "Only Posting is availiable"
-msgstr ""
+msgstr "Можна тільки розміщати"
 
-#: ckanext/pages/controller.py:381
+#: ckanext/pages/controller.py:394
 #, python-format
 msgid "Unauthorized to upload file %s"
-msgstr ""
+msgstr "Немає прав завантажувати файл %s"
 
 #: ckanext/pages/theme/templates_group/group/read_base.html:5
 #: ckanext/pages/theme/templates_main/ckanext_pages/edit_base.html:3
@@ -98,190 +102,249 @@ msgstr ""
 #: ckanext/pages/theme/templates_main/ckanext_pages/organization_page_list.html:9
 #: ckanext/pages/theme/templates_main/ckanext_pages/organization_page_list.html:12
 #: ckanext/pages/theme/templates_main/ckanext_pages/pages_list.html:10
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:15
 #: ckanext/pages/theme/templates_main/header.html:5
 #: ckanext/pages/theme/templates_organization/organization/read_base.html:5
 msgid "Pages"
-msgstr ""
+msgstr "Сторінки"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:37
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:9
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:10
 #: ckanext/pages/theme/templates_main/header.html:10
 msgid "Blog"
-msgstr ""
+msgstr "Новини"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base.html:15
 msgid "What are Pages?"
-msgstr ""
+msgstr "Що таке сторінки?"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base.html:18
 msgid ""
 " <p>Pages are are simple way to add extra pages to your ckan instance. "
 "You can assign an order to them.</p> "
-msgstr ""
+msgstr "<p>Сторінки це простий засіб додавати ще розділів до ckan</p>"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:39
 msgid "Image url"
-msgstr ""
+msgstr "Посилання на зображення"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:43
 msgid "Add Blog Article"
-msgstr ""
+msgstr "Додати новину"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:45
 msgid "Edit Blog Article"
-msgstr ""
+msgstr "Редагувати новину"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:48
 msgid "eg. Blog Article Title"
-msgstr ""
+msgstr "Заголовок новини"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:51
 #: ckanext/pages/theme/templates_main/ckanext_pages/group_page_list.html:5
 #: ckanext/pages/theme/templates_main/ckanext_pages/organization_page_list.html:5
 #: ckanext/pages/theme/templates_main/ckanext_pages/pages_list.html:5
 msgid "Add page"
-msgstr ""
+msgstr "Додати сторінку"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:53
 #: ckanext/pages/theme/templates_main/ckanext_pages/group_page.html:6
 #: ckanext/pages/theme/templates_main/ckanext_pages/organization_page.html:6
 msgid "Edit page"
-msgstr ""
+msgstr "Редагувати сторінку"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:56
 msgid "eg. Page Title"
-msgstr ""
+msgstr "наприклад Назва Сторінки"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:62
 msgid "Title"
-msgstr ""
+msgstr "Заголовок"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:66
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:90
 msgid "URL"
-msgstr ""
+msgstr "Посилання"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:68
 msgid "Publish Date"
-msgstr ""
+msgstr "Дата публікації"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:76
 msgid "Visibility"
-msgstr ""
+msgstr "Видимість"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:79
 msgid "Private"
-msgstr ""
+msgstr "Приватна"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:79
 msgid "Public"
-msgstr ""
+msgstr "Доступна всім"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:86
-msgid "Image URL"
-msgstr ""
-
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:88
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:90
+msgid "Image File"
+msgstr "Файл зображення"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:90
+msgid "http://example.com/external-image.jpg"
+msgstr ""
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:96
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:98
 msgid "Lang"
-msgstr ""
+msgstr "Мова"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:109
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:117
 msgid "Menu Order"
-msgstr ""
+msgstr "Місце у меню"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:112
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:120
 msgid "Not in Menu"
-msgstr ""
+msgstr "Не в меню"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:122
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:126
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:130
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:134
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:138
 msgid "Content"
-msgstr ""
+msgstr "Зміст"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:122
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:130
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:138
 msgid "Enter content here"
-msgstr ""
-
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:128
-msgid "My content"
-msgstr ""
-
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:135
-#: ckanext/pages/theme/templates_main/ckanext_pages/confirm_delete.html:15
-msgid "Cancel"
-msgstr ""
+msgstr "Місце для змісту"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:136
+msgid "My content"
+msgstr "Мій зміст"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:143
+#: ckanext/pages/theme/templates_main/ckanext_pages/confirm_delete.html:15
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:144
 msgid "Add"
-msgstr ""
+msgstr "Додати"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:141
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:149
 msgid "Are you sure you want to delete this Page?"
-msgstr ""
+msgstr "Видалити сторінку?"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:142
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:150
 msgid "Delete"
-msgstr ""
+msgstr "Видалити"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:146
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:154
 msgid "Save"
-msgstr ""
+msgstr "Зберегти"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:8
 #: ckanext/pages/theme/templates_main/ckanext_pages/page.html:8
 msgid "Edit"
-msgstr ""
+msgstr "Редагувати"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:27
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:25
 #: ckanext/pages/theme/templates_main/ckanext_pages/group_page.html:18
 #: ckanext/pages/theme/templates_main/ckanext_pages/organization_page.html:18
 #: ckanext/pages/theme/templates_main/ckanext_pages/page.html:23
-#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:51
-#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:71
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:46
 msgid "This page currently has no content"
-msgstr ""
+msgstr "Ця сторінка без контенту"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:54
-msgid "More"
-msgstr ""
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:38
+msgid "All News"
+msgstr "Всі новини"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:41
+msgid "Latest News"
+msgstr "Останні новини"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit.html:3
 msgid "Edit Article"
-msgstr ""
+msgstr "Редагувати"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:3
 msgid "Blog Articles"
-msgstr ""
+msgstr "Новини"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:12
 msgid "Add blog articles to CKAN here."
-msgstr ""
+msgstr "Додавайте тут новини"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:5
 msgid "Add Article"
-msgstr ""
+msgstr "Додати новину"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/confirm_delete.html:3
 #: ckanext/pages/theme/templates_main/ckanext_pages/confirm_delete.html:16
 msgid "Confirm Delete"
-msgstr ""
+msgstr "Підтвердіть видалення"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/confirm_delete.html:11
 msgid "Are you sure you want to delete page - {name}?"
-msgstr ""
+msgstr "Чи згодні ви видалити сторінку - {name}?"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/pages_edit.html:3
 msgid "Edit Page"
-msgstr ""
+msgstr "Редагувати сторінку"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:80
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:13
+msgid "News"
+msgstr "Новини"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:53
 msgid "There are currently no blog articles here"
+msgstr "Нема новин"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:55
+msgid "There are currently no pages here"
+msgstr "Нема сторінок"
+
+#: ckanext/pages/theme/templates_main/macros/blog_form.html:126
+#, python-format
+msgid ""
+"You can use <a href=\"#markdown\" title=\"Markdown quick reference\" "
+"data-target=\"popover\" data-content=\"%(markdown_tooltip)s\" data-"
+"html=\"true\">Markdown formatting</a> here"
 msgstr ""
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:82
-msgid "There are currently no pages here"
+#: ckanext/pages/theme/templates_main/macros/blog_form.html:235
+msgid "Remove"
+msgstr "Прибрати"
+
+#: ckanext/pages/theme/templates_main/macros/blog_form.html:265
+msgid "This field is required"
+msgstr "Це поле є обов'язковим"
+
+#: ckanext/pages/theme/templates_main/macros/blog_form.html:265
+msgid "Custom"
 msgstr ""
+
+#: ckanext/pages/theme/templates_main/macros/blog_form.html:290
+msgid "The form contains invalid entries:"
+msgstr "Ця форма містить некоректні значення:"
+
+#: ckanext/pages/theme/templates_main/macros/blog_form.html:395
+msgid "Required field"
+msgstr "Обов'язкове поле"
+
+#: ckanext/pages/theme/templates_main/macros/blog_form.html:410
+msgid "http://example.com/my-image.jpg"
+msgstr ""
+
+#: ckanext/pages/theme/templates_main/macros/blog_form.html:411
+msgid "Image URL"
+msgstr "Посилання на зображення"
+
+#: ckanext/pages/theme/templates_main/macros/blog_form.html:412
+msgid "Image"
+msgstr "Зображення"
+
+#: ckanext/pages/theme/templates_main/macros/blog_form.html:424
+msgid "Clear Upload"
+msgstr "Завантажити"
+
+#~ msgid "More"
+#~ msgstr ""
 
