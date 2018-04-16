@@ -101,7 +101,7 @@ msgstr ""
 #: ckanext/pages/theme/templates_main/header.html:5
 #: ckanext/pages/theme/templates_organization/organization/read_base.html:5
 msgid "Pages"
-msgstr ""
+msgstr "Сторінки"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:37
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:9
@@ -141,7 +141,7 @@ msgstr ""
 #: ckanext/pages/theme/templates_main/ckanext_pages/organization_page_list.html:5
 #: ckanext/pages/theme/templates_main/ckanext_pages/pages_list.html:5
 msgid "Add page"
-msgstr ""
+msgstr "Додати сторінку"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:53
 #: ckanext/pages/theme/templates_main/ckanext_pages/group_page.html:6
@@ -283,5 +283,5 @@ msgstr ""
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:82
 msgid "There are currently no pages here"
-msgstr ""
+msgstr "Наразі немає сторінок"
 
