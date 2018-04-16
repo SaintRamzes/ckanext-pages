@@ -1,7 +1,10 @@
+import cgi
+
 import ckan.plugins as p
 import ckan.lib.helpers as helpers
-from pylons import config
 import ckan.lib.helpers as h
+
+from pylons import config
 
 _ = p.toolkit._
 
@@ -336,14 +339,21 @@ class PagesController(p.toolkit.BaseController):
 
         if p.toolkit.request.method == 'POST' and not data:
             data = dict(p.toolkit.request.POST)
-
-            _page.update(data)
-
-            _page['org_id'] = None
-            _page['page'] = page
-            _page['page_type'] = 'page' if page_type == 'pages' else page_type
-
+            if isinstance(data.get('upload'), cgi.FieldStorage):
+                try:
+                    pages_upload = p.toolkit.get_action('ckanext_pages_upload')
+                    data['image_url'] = pages_upload({}, data)
+                except p.toolkit.ValidationError, e:
+                    data['image_url'] = ''
+                    h.flash_error(e.error_dict['message'])
+                    return self.pages_edit('/' + page, data,
+                                           errors, error_summary, page_type=page_type)
             try:
+                _page.update(data)
+                _page['org_id'] = None
+                _page['page'] = page
+                _page['page_type'] = 'page' if page_type == 'pages' else page_type
+
                 junk = p.toolkit.get_action('ckanext_pages_update')(
                     data_dict=_page
                 )

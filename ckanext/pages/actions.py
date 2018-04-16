@@ -1,11 +1,15 @@
 import datetime
 import json
+import magic
+import os
 
 import ckan.plugins as p
-import ckan.lib.navl.dictization_functions as df
-import ckan.lib.uploader as uploader
 import ckan.lib.helpers as h
+import ckan.lib.uploader as uploader
+import ckan.lib.navl.dictization_functions as df
+from ckan.logic import ValidationError
 from ckan.plugins import toolkit as tk
+
 from HTMLParser import HTMLParser
 try:
     import ckan.authz as authz
@@ -14,6 +18,21 @@ except ImportError:
 
 
 import db
+
+
+def image_mime_type_validator(file_path):
+    allowed_types = [
+        'image/jpeg',
+        'image/bmp',
+        'image/gif',
+        'image/png'
+    ]
+    file_type = magic.from_file(file_path, mime=True)
+    if file_type not in allowed_types:
+        return False
+    return True
+
+
 def page_name_validator(key, data, errors, context):
     session = context['session']
     page = context.get('page')
@@ -27,11 +46,13 @@ def page_name_validator(key, data, errors, context):
         errors[key].append(
             p.toolkit._('Page name already exists in database'))
 
+
 def not_empty_if_blog(key, data, errors, context):
     value = data.get(key)
     if data.get(('page_type',), '') == 'blog':
         if value is df.missing or not value:
             errors[key].append('Publish Date Must be supplied')
+
 
 class HTMLFirstImage(HTMLParser):
     def __init__(self):
@@ -129,6 +150,7 @@ def _pages_list(context, data_dict):
         out_list.append(pg_row)
     return out_list
 
+
 def _pages_delete(context, data_dict):
     if db.pages_table is None:
         db.init_db(context['model'])
@@ -163,7 +185,8 @@ def _pages_update(context, data_dict):
     items = ['title', 'content', 'name', 'private',
              'order', 'page_type', 'publish_date', 'image_url', 'lang']
     for item in items:
-        setattr(out, item, data.get(item,'page' if item =='page_type' else None)) #backward compatible with older version where page_type does not exist
+        # backward compatible with older version where page_type does not exist
+        setattr(out, item, data.get(item,'page' if item == 'page_type' else None))
 
     extras = {}
     extra_keys = set(schema.keys()) - set(items + ['id', 'created'])
@@ -179,6 +202,7 @@ def _pages_update(context, data_dict):
     session.add(out)
     session.commit()
 
+
 def pages_upload(context, data_dict):
 
     try:
@@ -193,14 +217,21 @@ def pages_upload(context, data_dict):
 
     upload.update_data_dict(data_dict, 'image_url',
                             'upload', 'clear_upload')
-    upload.upload()
+
+    upload.upload(uploader.get_max_image_size())
+
     image_url = data_dict.get('image_url')
+
+    if not image_mime_type_validator(upload.filepath):
+        raise ValidationError(tk._('You can upload image file only'))
+
     if image_url:
         image_url = h.url_for_static(
-           'uploads/page_images/%s' % image_url,
-            qualified = True
+            'uploads/page_images/%s' % image_url,
+            qualified=True
         )
-    return {'url': image_url}
+    return image_url
+
 
 @tk.side_effect_free
 def pages_show(context, data_dict):
@@ -226,6 +257,7 @@ def pages_delete(context, data_dict):
         p.toolkit.abort(401, p.toolkit._('Not authorized to see this page'))
     return _pages_delete(context, data_dict)
 
+
 @tk.side_effect_free
 def pages_list(context, data_dict):
     try:
@@ -233,6 +265,7 @@ def pages_list(context, data_dict):
     except p.toolkit.NotAuthorized:
         p.toolkit.abort(401, p.toolkit._('Not authorized to see this page'))
     return _pages_list(context, data_dict)
+
 
 @tk.side_effect_free
 def org_pages_show(context, data_dict):
@@ -258,6 +291,7 @@ def org_pages_delete(context, data_dict):
         p.toolkit.abort(401, p.toolkit._('Not authorized to see this page'))
     return _pages_delete(context, data_dict)
 
+
 @tk.side_effect_free
 def org_pages_list(context, data_dict):
     try:
@@ -265,6 +299,7 @@ def org_pages_list(context, data_dict):
     except p.toolkit.NotAuthorized:
         p.toolkit.abort(401, p.toolkit._('Not authorized to see this page'))
     return _pages_list(context, data_dict)
+
 
 @tk.side_effect_free
 def group_pages_show(context, data_dict):
@@ -289,6 +324,7 @@ def group_pages_delete(context, data_dict):
     except p.toolkit.NotAuthorized:
         p.toolkit.abort(401, p.toolkit._('Not authorized to see this page'))
     return _pages_delete(context, data_dict)
+
 
 @tk.side_effect_free
 def group_pages_list(context, data_dict):
