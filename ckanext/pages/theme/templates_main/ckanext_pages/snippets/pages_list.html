@@ -34,17 +34,6 @@
                 {{ h.render_datetime_genitive(page.publish_date) }}
         </div>
         {% endif %}
-          {% if page.content %}
-            {% if editor %}
-            <div>
-              {{page.content|striptags|truncate}}
-            </div>
-            {% else %}
-              {{ h.markdown_extract(page.content) }}
-            {% endif %}
-          {% else %}
-            <p class="empty">{{ _('This page currently has no content') }}</p>
-          {% endif %}
       </div>
     {% endfor %}
 
