@@ -71,9 +71,9 @@ def build_pages_nav_main(*args):
     return output
 
 
-def render_content(content):
+def render_content(content, replace_n=False):
     allow_html = toolkit.asbool(config.get('ckanext.pages.allow_html', False))
-    if allow_html:
+    if replace_n and allow_html:
         content = re.sub('\n', '<br>', content)
     try:
         return h.render_markdown(content, allow_html=allow_html)
