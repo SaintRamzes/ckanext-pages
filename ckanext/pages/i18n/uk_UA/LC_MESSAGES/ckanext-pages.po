@@ -176,11 +176,11 @@ msgstr "Видимість"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:79
 msgid "Private"
-msgstr "Приватна"
+msgstr "Лише для мене"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:79
 msgid "Public"
-msgstr "Доступна всім"
+msgstr "Для всіх"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:90
 msgid "Image File"
