@@ -10,7 +10,7 @@
   <div class="editor-content">
       <h1 class="page-heading">{{ c.page.title }}</h1>
           {% if c.page.publish_date %}
-          <span class="muted date"> {{ h.render_datetime_genitive(c.page.publish_date) }} </span>
+          <span class="muted date"> {{ h.render_datetime(c.page.publish_date) }} </span>
           {% endif %}
       {% if c.page.content %}
           {% set editor = h.get_wysiwyg_editor() %}
@@ -45,7 +45,7 @@
         {% for post in posts %}
         <li>
           {% if post.publish_date %}
-          <div class="date">{{ h.render_datetime_genitive(post.publish_date) }} </div>
+          <div class="date">{{ h.render_datetime(post.publish_date) }} </div>
           {% endif %}
           <a class="title" href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_show', page='/' + post.name) }}">
             {{ post.title or post.name }}</a>
