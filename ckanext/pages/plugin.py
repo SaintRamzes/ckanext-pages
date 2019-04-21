@@ -86,6 +86,20 @@ def get_wysiwyg_editor():
     return config.get('ckanext.pages.editor', '')
 
 
+def get_recent_posts(number=5, exclude=None):
+    r_page_list = toolkit.get_action('ckanext_pages_list')(
+        None, {'order_publish_date': True, 'private': False,}
+    )
+    new_list = []
+    for page in r_page_list:
+        if exclude and page['name'] == exclude:
+            continue
+        new_list.append(page)
+        if len(new_list) == number:
+            break
+    return new_list
+
+
 def get_recent_blog_posts(number=5, exclude=None):
     blog_list = toolkit.get_action('ckanext_pages_list')(
         None, {'order_publish_date': True, 'private': False,
@@ -148,6 +162,7 @@ class PagesPlugin(PagesPluginBase):
             'render_content': render_content,
             'get_wysiwyg_editor': get_wysiwyg_editor,
             'get_recent_blog_posts': get_recent_blog_posts,
+            'get_recent_posts': get_recent_posts,
             'pages_get_plus_icon': get_plus_icon,
             'current_date': current_server_date
         }

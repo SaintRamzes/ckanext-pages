@@ -55,11 +55,6 @@ class PagesController(p.toolkit.BaseController):
         if 'cancel' in p.toolkit.request.params:
             p.toolkit.redirect_to(controller=self.controller, action='org_edit', id=p.toolkit.c.group_dict['name'], page='/' + page)
 
-  ##      try:
-  ##          self._check_access('group_delete', {}, {'id': id})
-  ##      except p.toolkit.NotAuthorized:
-  ##          p.toolkit.abort(401, _('Unauthorized to delete page'))
-
         try:
             if p.toolkit.request.method == 'POST':
                 p.toolkit.get_action('ckanext_pages_delete')({}, {'org_id': p.toolkit.c.group_dict['id'], 'page': page})
@@ -71,7 +66,6 @@ class PagesController(p.toolkit.BaseController):
         except p.toolkit.ObjectNotFound:
             p.toolkit.abort(404, _('Group not found'))
         return p.toolkit.render('ckanext_pages/confirm_delete.html', {'page': page})
-
 
     def org_edit(self, id, page=None, data=None, errors=None, error_summary=None):
         self._template_setup_org(id)
@@ -127,7 +121,6 @@ class PagesController(p.toolkit.BaseController):
             p.toolkit.abort(404, _('Group not found'))
         except p.toolkit.NotAuthorized:
             p.toolkit.abort(401, _('Unauthorized to read group %s') % id)
-
 
     def group_show(self, id, page=None):
         if page:
@@ -191,7 +184,7 @@ class PagesController(p.toolkit.BaseController):
                 'error_summary': error_summary, 'page': page}
 
         return p.toolkit.render('ckanext_pages/group_page_edit.html',
-                               extra_vars=vars)
+                                extra_vars=vars)
 
     def blog_index(self):
         return self._pages_list_pages('blog')
@@ -257,8 +250,6 @@ class PagesController(p.toolkit.BaseController):
 
         _page['content'] = lxml.html.tostring(root)
 
-
-
     def pages_show(self, page=None, page_type='page'):
         p.toolkit.c.page_type = page_type
         if page:
@@ -280,10 +271,10 @@ class PagesController(p.toolkit.BaseController):
         return self._pages_list_pages('page')
 
     def _pages_list_pages(self, page_type):
-        lang = h.lang()
+        #lang = h.lang()
         data_dict={'org_id': None, 'page_type': page_type}
-        if lang != "en":
-            data_dict["lang"] = lang
+        #if lang != "en":
+        #    data_dict["lang"] = lang
         if page_type == 'blog':
             data_dict['order_publish_date'] = True
         p.toolkit.c.pages_dict = p.toolkit.get_action('ckanext_pages_list')(
@@ -322,7 +313,6 @@ class PagesController(p.toolkit.BaseController):
         except p.toolkit.ObjectNotFound:
             p.toolkit.abort(404, _('Group not found'))
         return p.toolkit.render('ckanext_pages/confirm_delete.html', {'page': page})
-
 
     def blog_edit(self, page=None, data=None, errors=None, error_summary=None):
         return self.pages_edit(page=page, data=data, errors=errors, error_summary=error_summary, page_type='blog')

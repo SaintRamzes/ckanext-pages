@@ -111,7 +111,7 @@ def _pages_list(context, data_dict):
         search['page_type'] = page_type
     if order_publish_date:
         search['order_publish_date'] = True
-    search['lang'] = h.lang()
+    # search['lang'] = h.lang()
     if not org_id:
         search['group_id'] = None
         try:
@@ -183,7 +183,7 @@ def _pages_update(context, data_dict):
         out.group_id = org_id
         out.name = page
     items = ['title', 'content', 'name', 'private',
-             'order', 'page_type', 'publish_date', 'image_url', 'lang']
+             'order', 'page_type', 'publish_date', 'image_url',]
     for item in items:
         # backward compatible with older version where page_type does not exist
         setattr(out, item, data.get(item,'page' if item == 'page_type' else None))
