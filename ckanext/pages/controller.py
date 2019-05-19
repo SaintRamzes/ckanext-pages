@@ -385,4 +385,4 @@ class PagesController(p.toolkit.BaseController):
 
         return """<script type='text/javascript'>
                       window.parent.CKEDITOR.tools.callFunction(%s, '%s');
-                  </script>""" % (p.toolkit.request.GET['CKEditorFuncNum'], url['url'])
+                  </script>""" % (p.toolkit.request.GET['CKEditorFuncNum'], url)

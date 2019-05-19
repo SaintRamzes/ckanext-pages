@@ -24,8 +24,8 @@ else:
 
 log = logging.getLogger(__name__)
 
-def build_pages_nav_main(*args):
 
+def build_pages_nav_main(*args):
     about_menu = toolkit.asbool(config.get('ckanext.pages.about_menu', True))
     group_menu = toolkit.asbool(config.get('ckanext.pages.group_menu', True))
     org_menu = toolkit.asbool(config.get('ckanext.pages.organization_menu', True))

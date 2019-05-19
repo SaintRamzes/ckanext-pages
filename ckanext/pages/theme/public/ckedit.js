@@ -12,11 +12,11 @@ this.ckan.module('ckedit', function (jQuery, _) {
     _onReady: function() {
       var config = {};
       config.toolbarGroups = [
-        { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
+        { name: 'clipboard',   groups: [ 'clipboard', 'undo'] },
         { name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
         { name: 'links' },
-        { name: 'insert' },
-        { name: 'forms' },
+        { name: 'insert'},
+        { name: 'forms',       groups:['mode'] },
         { name: 'tools' },
         { name: 'document',	   groups: [ 'document', 'doctools' ] },
         { name: 'others' },
